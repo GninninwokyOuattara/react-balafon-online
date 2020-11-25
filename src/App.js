@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { default as key_sound } from "./key_sound";
+import Landing from "./components/Landing";
+import Paper from "./components/Paper";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [gotIt, setGotIt] = useState(false);
+
+    if (!gotIt) {
+        return <Landing {...{ gotIt, setGotIt }} />;
+    } else {
+        return (
+            <>
+                <Paper />
+            </>
+        );
+    }
 }
 
 export default App;
